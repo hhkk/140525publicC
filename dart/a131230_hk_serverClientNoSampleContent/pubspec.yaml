@@ -1,0 +1,5 @@
+name: a131230_hk_serverClientNoSampleContent
+description: A sample web application
+dependencies:
+  browser: any
+  mongo_dart: 0.1.36

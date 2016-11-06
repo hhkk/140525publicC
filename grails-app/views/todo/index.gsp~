@@ -1,0 +1,391 @@
+<%@page import="com2.hk.util.FileLine"%>
+<%@page import="com2.hk.util.UtilSearch"%>
+<%@page import="org.junit.internal.matchers.CombinableMatcher"%>
+<html>
+<head><%--
+document.body.onLoad=onloadhk2()
+--%>
+<TITLE>UTD / ${srchstr}
+</TITLE>
+<meta name="layout" content="main"></meta>
+<script type="text/javascript">
+
+var line1 = "";
+
+function onloadhk()
+{
+	//alert("in onloadhk")
+	//document.bgColor='#AAAAAA';
+	document.bgColor='rgb(232,232,232)'
+	document.hkformname.searchNow.focus();
+	setTitle("."); 
+}
+
+function hist()
+{
+	alert("in hist");
+}
+
+function getTopToSrch()
+{
+	document.getElementById('fld1userinput').value = document.getElementById('fld5top').value;
+	document.hkformname.searchNow.focus();
+	//alert("in getFirstTagSetToScratch");
+}
+
+function home()
+{
+	document.getElementById('fld1userinput').focus();
+}
+
+function fnmakescratchbig()
+{
+	//alert("hi fnmakescratchbig");
+	//document.hkformname.textareablotter.height=50
+	if (document.getElementById('fld4textareablotter').rows == 3) {
+		document.getElementById('fld4textareablotter').rows = 20; // clear name="textareablotter" id="fld4textareablotter" v
+		//document.hkformname.button4More.value="more"
+		document.getElementById('fld4textareablotter').focus();
+	}
+	else // make smaller
+	{
+		document.getElementById('fld4textareablotter').rows = 3; // clear name="textareablotter" id="fld4textareablotter" v
+		document.getElementById('fld1userinput').focus();
+	}
+}
+
+
+function clearfields()
+{
+	document.getElementById('fld1userinput').value = ""; // clear 
+	document.getElementById('fld2sought').value = ""; // clear 
+	document.getElementById('fld3saved').value = ""; // clear 
+	document.getElementById('fld4textareablotter').value = ""; // clear 
+	document.getElementById('fld1userinput').focus();
+}
+
+function fncopyseek()
+{
+	blotterAppend (document.getElementById('fld1userinput').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
+}
+function fncopysought()
+{
+	blotterAppend (document.getElementById('fld2sought').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
+}
+function fncopysaved()
+{
+	blotterAppend (document.getElementById('fld3saved').value); //copy sought categ 
+	document.getElementById('fld4textareablotter').focus();
+}
+function fncopytoptosrch()
+{
+	document.getElementById('fld1userinput').value = document.getElementById('fld5top').value
+	document.getElementById('fld4textareablotter').value = document.getElementById('fld5top').value
+	
+	//blotterSet (document.getElementById('fld5top').value); //copy sought categ 
+	document.getElementById('fld1userinput').focus();
+}
+function fncopyscratch()
+{
+	document.getElementById('fld1userinput').value = document.getElementById('fld4textareablotter').value + ' w'  
+	document.getElementById('fld1userinput').focus();
+}
+
+function fnclearsaved()
+{
+	document.getElementById('fld3saved').value = ''
+}
+
+function blotterAppend(s)
+{
+	document.getElementById('fld4textareablotter').value = 	document.getElementById('fld4textareablotter').value  + "  |  " + s 
+}
+
+function blotterSet(s)
+{
+	document.getElementById('fld4textareablotter').value = 	s 
+}
+
+function setTitle(s)
+{
+	//alert("in setTitle");
+	document.title = "UTD / " + (document.getElementById('fld1userinput').value+s);
+}
+
+function postautocomplete (s)
+{
+
+	//var xxx = "\<TITLE\>"+document.getElementById('fld1userinput').value+"\<\/TITLE\>";
+	///alert("in postautocomplete:"+xxx);
+	  // document.getElementById('hktitle').value = xxx;
+	//  alert("in postautocomplete")
+	setTitle("");
+	//alert("we are post autocomplete");
+	//var a = document.getElementById('fld1userinput').value;
+	 
+	 //var al=a.length;
+	 //var last_char=a.charAt(al-1)
+	 //if (last_char != ' ')
+	 //{	
+	//	 document.getElementById('listoutput').innerHTML = ""; // clear 
+	 //}
+}
+
+// var key1="32"; // space 
+var key1="19"; // ctrl-s 
+var keyctrlt="20"; // ctrl-t 
+var x='';
+function handler(e) 
+{
+  if (document.all) {
+    var evnt = window.event; 
+    x=evnt.keyCode;
+  }
+  else
+    x=e.charCode;
+
+  //alert ("x=["+ x +"]");
+  
+  if (x==key1) 
+  {
+		//document.getElementById('fld1userinput').focus();
+		document.hkformname.searchNow.focus();
+		//document.searchNow.focus();
+		  
+	//  	  location.href='http://www.expertsrt.com';
+  }
+  if (x==keyctrlt) // ctrl-t 
+  {
+	  getTopToSrch();
+  }
+}
+
+if (!document.all)
+{
+  window.captureEvents(Event.KEYPRESS);
+  window.onkeypress=handler;
+}
+else
+{
+  document.onkeypress = handler;
+} 
+</script>
+</head>
+
+<body onLoad="onloadhk()"> 
+
+
+<div id="hd"><a href="<g:createLinkTo dir="/"/>"> <img
+	id="logo" src="${createLinkTo(
+dir: 'images',
+file: 'allyourui.jpg')}"
+	alt="all your logo" /> </a></div>
+   <%--
+
+
+
+
+
+
+--%><%--  ===== HEADER AND SEARCH FORM / TEXT BOX ====== --%>
+<font color=black face="Arial"><%--
+
+TRY TO RETURN HERE AFTER AUTH - NOT WORKING YET - HOPEFULLY WILL APPEAR
+--%><auth:form authAction="signup" success="[controller:'todo', action:'index']" error="[controller:'todo', action:'index']">
+</auth:form>
+
+
+<div class="form"><%--<formset>--%> <g:form name="hkformname" action="index">
+
+	<label for="userId"></label>
+
+	<%-- ========== AUTOCOMPLETE SEARCH --%>
+	<br>
+
+	<table>
+		<tr>
+			<td>
+			<table>
+				<%-- ========== FIELD1 F1 BUTTON AND AJAX FIELD -- INPUT REMOTE FUNCTION AUTOCOMPLETE SOURCE fld1userinput --%>
+				<tr>
+					<td><font size=-2> <g:submitButton  name="search"
+						value="Do" /></font><%--
+						<font size=-2>Seek:</font>&nbsp;&nbsp;
+						
+					--%></td>
+					<td><input title="This text field serves as both Search and Save. To save, put a lone 'w' at begin or end of your text record and hit enter.  
+					Without the 'w' it's a search over previously saved records - substring, case sensitive over instances, categories, dates, workflow step names, field names.   The text record saved can be of any structure or length you like" 
+					name='searchNow' id='fld1userinput' type="text"
+						size="125" value="${searchNow}"
+						onkeyup="${
+							remoteFunction (action:'autocompleteSearch',
+							update:[success:'listoutput', failure:'listoutput'], 
+							params:'\'autocomp=\' + this.value', 
+							onComplete:'postautocomplete();')} ">
+						<INPUT type="button" value="" title="Copy to Scratch." name="buttoncopyseek" onClick="fncopyseek()">
+						<INPUT type="button" value="" title="Clear." onClick="document.getElementById('fld1userinput').value = ''">
+						<INPUT type="button" value="New feature" title="Get first tag set to scratch area." onClick=getFirstTagSetToScratch()>
+						
+					</td>
+
+				<%-- ========== FIELD2 F2 TEXTFIELD Searched fld2sought --%>
+				</tr>
+				<tr>
+					<td><font size=-2>Searched:</font>&nbsp;&nbsp;
+					</td>
+					<td>
+						<g:textField size="130" title="Searched. What you last Searched for." id="fld2sought" name="searchedPrev" value="${searchedPrev}" />
+	  					<INPUT type="button" value="" name="buttoncopysought" title="Copy to Scratch." onClick="fncopysought()">
+	  					<INPUT type="button" value="" title="Clear." onClick="document.getElementById('fld2sought').value = ''">
+	  					
+					</td>
+					<%--
+					</td>
+						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
+					</td>
+					<td><g:textField size="130" name="lineout" value="${lineout}" />
+					</td>
+				--%></tr>
+
+				<%-- ========== FIELD3 F3 TEXTFIELD SAVED fld3saved --%>
+				<tr>
+					</td>
+						<td><font size=-2>Saved:</font>&nbsp;&nbsp;
+						</td>
+					<td>
+						<g:textField size="130"   title="Saved.  What you last Saved." id="fld3saved" name="savedPrev" value="${savedPrev}" />
+						<INPUT type="button" value="" name="buttoncopysaved" title="Copy to Scratch."onClick="fncopysaved()">
+	  					<INPUT type="button" value=""  title="Clear." onClick="fnclearsaved()">
+					</td>
+				</tr>
+				
+				<%-- ========== FIELD4 F4 TEXTAREA SCRATCH fld4textareablotter --%>
+				<tr>
+					<td><font size=-2>Scratch:</font>&nbsp;&nbsp;
+					</td>
+					<td><g:textArea name="scratch" title="Scratch.  Saved, Searhed, and whatever else you do in here." 
+					id="fld4textareablotter" 
+					value="${scratch}" rows="2" cols="100"  onclick="this.focus();this.select()" />
+						<FORM>
+					 		<%--<INPUT type="button" value="Grey" name="button3" onClick="document.bgColor='rgb(232,232,232)'">--%>
+					 		<INPUT type="button" title="Copy to Search ('w'rite enabled)." value=""  onClick="fncopyscratch()">
+		  					<INPUT type="button" value=""  title="Clear." onClick="document.getElementById('fld4textareablotter').value = ''">
+					 		<INPUT type="button" value="" title="Toggle Scratch size." name="button4Morename" id="button4More" onClick="fnmakescratchbig()">
+					 		
+						</FORM>
+					</td>
+				</tr>
+
+				<%-- ========== FIELD5 F5 TEXTFIELD TOP fld5top --%>
+				<tr>
+					</td>
+						<td><font size=-2>Top hit:</font>&nbsp;&nbsp;
+						</td>
+					<td>
+						<g:textField size="130"   title="Top from the (full search, not autocompleted) list below ... a template for next data entry.  Click the button to the right to copy to the search/data entry field" 
+						id="fld5top" name="top" value="${rtnFld5Top}" />
+						<INPUT type="button" value="" name="buttoncopytoptoarch" onClick="fncopytoptosrch()">
+					</td>
+				</tr>
+				
+
+			</table>
+			</td>
+			<td>	
+				<table>
+					<tr>
+						<td>	
+						<div id='autotgtdivintable'></div></td>
+					</tr>
+					<tr>
+						<td><%--H2</td>--%>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+	<%--
+	word order close
+	--%>
+	<INPUT type="button" value="Clear" name="button2" onClick="clearfields();	document.getElementById('fld1userinput').focus();">
+	<INPUT type="button" value="Hist" name="buttonhist" onClick="hist();">
+	<g:checkBox name="cbword" value="${cbword}" /> word 	<g:checkBox
+		name="cborder" value="${cborder}" /> order<g:checkBox name="cbclose"
+		value="${cbclose}" /> close    <g:textField size="1" name="maxAge"
+		value="${maxAge}" />&nbsp;old
+	<auth:logoutLink success="[controller:'home', action:'newUser']"
+		error="[controller:'userProfile', action:'error']">&nbsp;${user1} logoff</auth:logoutLink>
+<p>		
+</g:form> <%--</formset>--%></div>
+</div>
+<g:if test="${flash.message}">
+FLASH:	${fqFileName}
+</g:if> 
+<script>
+//alert($ == jQuery) // is jquery the active ....  ? 
+</script> 
+
+
+<%--  ===== LIST LIST LIST OUTPUT ======================== --%>
+
+<div id='listoutput'>
+[${searchNow}] Full Search Result: (${alFileLines.size()})
+<table>
+	<tbody>
+		<g:each in="${alFileLines}" status="i" var="fl">
+			<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+
+
+				<td><g:if test="${maxAge.contains('+')}">
+					<font size=-1 color="green"> ${ fl.date} </font>
+				</g:if></td>
+
+				<%--REVERSE COUNTER--%>
+				<td><font color="purple" size=-1> ${fl.ageLetter} </font></td>
+
+				<td>
+					<td><font color="blue" size=-1> ${(i+1).toString()}
+					</font>
+				</td>
+				<td><g:checkBox name="cbword" value="${cbword}" /></td>
+				<td>
+				<g:if test="${maxAge.contains('+')}">
+					 <SELECT NAME="gourl">
+						<OPTION VALUE="def">
+						<OPTION VALUE="del">del
+						<OPTION VALUE="touch">upd
+						
+				</g:if>
+				</td>
+				</SELECT>
+				</td>
+
+				<g:if test="${maxAge.contains('+')}">
+					<font size=-1 color="green"> ${fl.fileLineNumThisLine1Based} </font> : 
+				</g:if>
+				</td>
+
+				<td><font color=${ ((i+1) % 2) ==0? "grey" : "black" }>&nbsp;
+				
+				${ (i) == 0? "<div id='divtags'></div>" : "" }
+				${ (i) == 1? "<div id='divtagsend'></div>" : "" }
+				
+				${UtilSearch.colorTags(fl.lineMinusDateStr, searchNow, "green")} </font></td>
+				<%--<g:createLink url="[controller:'milesAccount', action:'generateTooltip', params:[id:${it.id}, extra:'extra']]" />--%>
+
+			</tr>
+		</g:each>
+	</tbody>
+</table>
+		<div id='divtagsend2'></div>
+</div>
+</font>
+
+<font size=-2>ip: ${ip}</font>
+
+</body>
+</html>

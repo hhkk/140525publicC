@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.google.code.morphia:morphia:0.101.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/morphia/morphia/0.101.0/morphia-0.101.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/mongodb/mongo-java-driver/2.11.2/mongo-java-driver-2.11.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

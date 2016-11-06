@@ -1,0 +1,50 @@
+<!--from http://api.jquery.com/has-attribute-selector/-->
+
+<!--http://localhost:8084/ustodo/index121103TestOnLoad.html-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    <script type="text/javascript">
+        function testddd() {
+            alert ("in test")
+            var results = "";
+            var myArray    = new Array();
+            myArray[0] = "Customizable";
+            myArray[1] = "Marketing Collateral";
+            myArray[2] = "Online Marketing";
+            myArray[3] = "Training";
+            myArray[4] = "Event Resources";
+            myArray[5] = "Marketing Logos";
+            myArray[6] = "Competitive Solution Comparison";
+            myArray[7] = "Sales Tools";
+            myArray[8] = "Retail Marketing"
+            myArray[9] = "Internal";
+
+            results = "<table>";
+            for (var i=0; i<myArray.length; i++) {
+                results += "<tr><td>" + myArray[i] + "</td>";
+                results += "<td>" + myArray[i+1] + "</td></tr>";
+            }
+
+            results += "<tr><td colspan=2><a href='#' onclick='javascript:RedirectParentToDownload();'>View all content ></a></td></tr>";
+            results += "<table><br /> <br />";
+
+            var div = document.getElementById("associatedAssets");
+            div.innerHTML = results;
+        }
+    </script>
+</head>
+
+<body onload="javascript:testddd();">
+<div id="associatedAssets"></div>
+
+
+</body>
+</body>
+</html>

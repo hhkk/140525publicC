@@ -1,0 +1,40 @@
+ Volume in drive C is Acer
+ Volume Serial Number is 362A-2207
+
+ Directory of c:\140525publicC
+
+06/26/2014  11:24 PM    <DIR>          .
+06/26/2014  11:24 PM    <DIR>          ..
+08/08/2013  05:43 AM               689 #.gitignore#
+01/31/2014  07:33 PM               505 .gitattributes
+06/22/2014  02:20 AM               682 .gitignore
+08/08/2013  05:43 AM               733 .gitignore~
+06/26/2014  08:35 PM    <DIR>          .idea
+05/25/2014  06:13 PM            10,223 130707public-grailsPlugins.iml
+05/25/2014  06:13 PM             4,828 130707public.iml
+06/22/2014  02:35 AM    <DIR>          140525publicC
+05/02/2014  01:21 AM               254 application.properties
+05/25/2014  02:42 PM    <DIR>          dart
+06/08/2014  12:59 PM                63 favsbkon.csv
+06/26/2014  11:07 PM            46,439 favsckckck.csv
+10/24/2013  10:30 PM                 0 favslb.csv
+11/08/2013  06:21 AM                31 favsyy.csv
+05/25/2014  02:42 PM    <DIR>          grails-app
+05/25/2014  02:42 PM    <DIR>          javacallgroovy
+05/25/2014  02:42 PM    <DIR>          lib
+05/25/2014  02:42 PM    <DIR>          morphia
+05/25/2014  02:42 PM    <DIR>          out
+08/08/2013  05:43 AM            49,354 Project_Default.xml
+08/08/2013  05:43 AM                57 push.bat
+04/26/2014  06:34 AM                 0 README.md
+05/25/2014  02:42 PM    <DIR>          scripts
+05/25/2014  02:42 PM    <DIR>          src
+06/22/2014  04:51 AM    <DIR>          target
+04/06/2014  02:50 PM             5,798 temp.txt
+08/08/2013  05:43 AM             1,238 temp2.txt
+06/26/2014  11:24 PM                 0 temptoday.txt
+05/25/2014  02:42 PM    <DIR>          test
+05/25/2014  02:42 PM    <DIR>          tmp
+06/03/2014  03:26 AM    <DIR>          web-app
+              17 File(s)        120,894 bytes
+              16 Dir(s)   7,002,238,976 bytes free

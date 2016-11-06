@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<!--
+http://u2d.co/index140501_angularTest.html
+-->
+
+<!--from http://viralpatel.net/blogs/angularjs-introduction-hello-world-tutorial/-->
+<!--http://jsfiddle.net/viralpatel/nZ5sH/-->
+<head>
+    <title>Hello World, AngularJS - ViralPatel.net</title>
+    <script type="text/javascript"
+            src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
+    </script>
+
+    Write some text in textbox:
+    <input type="text" ng-model="sometext" />
+
+<h1 ng-show="sometext">Hello1 {{ sometext }}</h1>
+
+Write some text in textbox:
+<input type="text" ng-model="sometext" />
+<h1>Hello2 {{ sometext }}</h1>
+<h4>Uppercase: {{ sometext | uppercase }}</h4>
+<h4>Lowercase: {{ sometext | lowercase }}</h4>
+
+
+<script type="text/javascript">
+    function ContactController($scope) {
+        $scope.contacts = ["hi@email.com", "hello@email.com"];
+        //alert('in init of class ContactController)')  ;
+        $scope.add = function() {
+            //alert('in ContactController.add)')  ;
+            $scope.contacts.push($scope.newcontact);
+            $scope.newcontact = "";
+        }
+    }
+</script>
+<div ng-app ng-controller="ContactController">
+    e1:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <ul><li ng-repeat="contact in contacts"> {{ contact }} </li></ul>
+
+    e2:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <ul><li ng-repeat="contact in contacts"> {{ contact }} </li></ul>
+</div>
+<div ng-controller="ContactController">
+    e3:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <ul><li ng-repeat="contact in contacts"> {{ contact }} </li></ul>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"        "http://www.w3.org/TR/html4/loose.dtd">
+
+<meta name='layout' content='main'/>
+
+<html>
+<head>
+    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+    <title>Untitled Document</title>
+
+
+    <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
+
+<script type=\"text/javascript\">
+
+// Get user selection text on page
+function getSelectedText() {
+    if (window.getSelection) {
+        return window.getSelection();
+    }
+    else if (document.selection) {
+        return document.selection.createRange().text;
+    }
+    return '';
+        }
+
+    $(document).ready(function(){
+    $(\"#button\").click(function(){
+        var myObj = $('#highlight');//change to the location of the text you want selected/highlight-able
+			myObj.html( myObj.html().replace(getSelectedText(),'<span class=\"selected\">'+getSelectedText()+'</span>') );//notice class name \"selected\"
+        });
+        });
+
+    </script>
+</head>
+
+<body>
+
+<p id=\"highlight\">Highlight any part of this text then click the button to make it selected. </p><br />
+
+    <input type=\"button\" id=\"button\" value=\"Click Me\" />
+
+    </body>
+</html>

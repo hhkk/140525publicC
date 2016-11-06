@@ -1,0 +1,38 @@
+<!-- C:\140525publicC\web-app\totest\140528LearnInputbox\140528ReflectInputTextBox2.html-->
+
+
+<!doctype html>
+<html ng-app="form-example1">
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+    var app = angular.module('form-example1', []);
+
+    app.controller("Controller", ['$scope', function($scope){
+
+    $scope.population = 7000;
+    $scope.countries = [
+    {name: 'France', population: 63.1},
+    {name: 'United Kingdom', population: 61.8}
+    ];
+
+
+    }]);
+
+
+    </script>
+</head>
+<body>
+
+<div ng-controller="Controller">
+    <li ng-repeat="country in countries">
+        {{country.name}} has population of {{country.population}}
+    </li>
+    <hr>
+    World's population: {{population}} millions
+</div>
+
+
+</body>
+</html>

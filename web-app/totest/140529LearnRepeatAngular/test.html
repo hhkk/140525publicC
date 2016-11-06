@@ -1,0 +1,48 @@
+<!-- C:\140525publicC\web-app\totest\140529LearnRepeat\test.html-->
+
+
+<!doctype html>
+<html ng-app="form-example1">
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script type="text/javascript">
+
+        var app = angular.module('form-example1', []);
+
+        app.controller("Controller", ['$scope', function($scope){
+
+            $scope.population = 7000;
+            $scope.countries = [
+                {name: 'France', population: 63.1},
+                {name: 'United Kingdom', population: 61.8}
+            ];
+
+            $scope.inputValue = "joe";
+            $scope.items=['tom', 'dick']
+
+
+        }]);
+
+
+    </script>
+</head>
+<body ng-app="form-example1">
+
+<div ng-controller="Controller">
+    <li ng-repeat="country in countries">
+        {{country}}
+        {{country.name}} has population of {{country.population}}
+    </li>
+    <li ng-repeat="itemh in items">
+        {{itemh}}
+    </li>
+
+
+    <input type='text' ng-model='inputValue' />     {{inputValue}}
+    <hr>
+    World's population: {{population}} millions
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<html>
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+
+
+    <style type="text/css" media="all">
+
+
+        #container  {
+            background-image: url(images/darkerwhitepainting.jpg);
+            background-repeat:repeat-y;
+
+        /*width: 900px;*/
+
+        }
+
+        #header	{
+
+        width: 900px;
+        height: 100px;
+        position: relative;
+        /*background-image: url(images/headerBG.jpg);*/
+        border-bottom: 2px solid #000000;
+
+        }
+
+        #header a  {
+
+        color: #ffffff;
+        text-decoration: underline;
+        font-weight: bold;
+        font-family: Verdana;
+        font-size: 14px;
+
+        }
+
+        #header a:visited  {
+
+        color: #000000;
+        text-decoration: underline;
+        font-weight: bold;
+
+        }
+
+        #header a:hover  {
+
+        color: #cc0000;
+        text-decoration: none;
+        font-weight: bold;
+
+        }
+
+
+        .HorizLinks  {
+
+        position: absolute; top: 77px; left: 180px;
+
+        }
+
+        .HorizLinks ul {
+
+        margin: 0px;
+
+        }
+
+        .HorizLinks li {
+
+        margin: 0px 15px 0px 0px;
+        list-style-type: none;
+        display: inline;
+
+        }
+
+
+        #horizontalnav  {
+
+        width: 900px;
+        height: 30px;
+        position: relative;
+        background-color: #F2D6AF;
+        border-bottom: 2px solid #000000;
+
+        }
+
+        .navlinks  {
+
+        position: absolute; top: 4px; left: 140px;
+
+        }
+
+        .navlinks ul {
+
+        margin: auto;
+
+        }
+
+        .navlinks li {
+
+        margin: 0px 18px 0px 0px;
+        list-style-type: none;
+        display: inline;
+
+        }
+
+        .navlinks li a {
+
+        color: #000000;
+        padding: 5px 12px 7px;
+        text-decoration: none;
+        font-size: 16px;
+        font-family: Verdana;
+
+        }
+
+        .navlinks li a:hover{
+
+        color: #ffffff;
+        background-image: url(images/BGhover.jpg);
+        /*If you want to use a color for the background instead replace above line with background-color: [insert color here with # sign in front];*/
+        text-decoration: underline;
+
+
+        }
+
+
+        #header p  {
+
+        color: #000000;
+        font-family: Arial;
+        font-weight: bold;
+
+        }
+
+        .smalltext   {
+
+        font-size: 9px;
+        font-family: Arial;
+
+        }
+
+
+        #leftnav {
+
+        float: left;
+        width: 140px;
+        height: 400px;
+        background-color: #F8AA3C;
+        border-right: 1px dashed #694717;
+
+        }
+
+
+        #rightnav  {
+
+        float: right;
+        width: 140px;
+        height: 400px;
+        background-color: #F8AA3C;
+        border-left: 1px dashed #694717;
+
+        }
+
+        #body  {
+
+        margin: auto;
+        width: 600px;
+        padding: 10px 0px 0px 10px;
+
+
+        }
+
+        #footer  {
+
+        clear: both;
+        background-color: #D1C0A7;
+
+
+        }
+
+        .box  {
+
+        margin-top: 10px;
+        padding: 5px 5px 5px 5px;
+        background-color: #dddddd;
+        border: 2px solid #d22929;
+        width: 350px;
+        color: #000000;
+
+        }
+
+        h2  {
+
+        font-size: 20px;
+        color: #cc0000;
+        padding: 10px;
+        font-family: Verdana;
+
+        }
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+<div id="container">
+
+<div id="header">
+<a href="http://www.website.com">This is the header</a>
+
+
+<div class="HorizLinks">
+<ul>
+<li><a href="http://www.website.com">Header Link 1</a></li>
+<li><a href="http://www.website.com">Header Link 2</a></li>
+<li><a href="http://www.website.com">Header Link 3</a></li>
+<li><a href="http://www.website.com">Header Link 4</a></li>
+</ul>
+</div>
+
+<p>Header Text</p>
+<p class="smalltext">Small Text</p>
+
+</div>
+
+
+
+<div id="horizontalnav">
+
+<div class="navlinks">
+
+<ul>
+<li><a href="http://www.website.com">Nav Link 1</a></li>
+<li><a href="http://www.website.com">Nav Link 2</a></li>
+<li><a href="http://www.website.com">Nav Link 3</a></li>
+<li><a href="http://www.website.com">Nav Link 4</a></li>
+
+</div>
+
+</div>
+
+
+
+
+<div id="leftnav">This is the leftnav</div>
+
+<div id="rightnav">This is the right nav</div>
+
+<div id="body">This is the body  <br><div class="box"><h2>This is h2 text </h2>inside the box</div></div>
+
+<div id="footer">This is the footer</div>
+
+</div>
+
+
+</body>
+</html>

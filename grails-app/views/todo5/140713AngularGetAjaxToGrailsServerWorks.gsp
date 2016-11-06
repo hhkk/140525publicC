@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+%{--
+http://u2d.co/todo5   index points to this  -- works
+see also: var responsePromise = $http.jsonp("http://public-api.wordpress.com/rest/v1/sites/wtmpeachtest.wordpress.com/posts?callback=JSON_CALLBACK");
+--}%
+
+<!--C:\140525publicC\web-app\totest\140526TestAngularGetNotAjax.html-->
+
+<!--uses http://u2d.co/todo/ajax_getTestAngularStyleGet-->
+
+<!--http://localhost:8081/totest/140526TestAngularGetNotAjax.html-->
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp_bodylevel">
+
+<div ng-controller="MyController_withinModule" >
+    <button ng-click="myData.doClick(item, $event)">Send AJAX Request</button>
+    <br/>
+    <br/>
+    <input type="button" value="click here3" ng-click="myData.doClick(item, $event)">
+    <input type="button" value="click to run myData.testOverwrite hkhk" ng-click="myData.testOverwrite(item, $event)">
+
+    /todo/ajax_getTestAngularStyleGet <br><br>
+
+    http://localhost:8081/totest/140526TestAngularGetNotAjax.html<br><br>
+    http://localhost:8085/totest/140526TestAngularGetNotAjax.html<br><br>
+
+    Data from server: {{myData.fromServer}}
+</div>
+
+
+<!--<div ng-app="watchApp" ng-controller="watchCtrl">-->
+hi mom
+<div ng-controller="MyController_withinModule">
+    aa
+    <div ng-repeat="a in b">
+        <input type="text" ng-model="a.value" />{{a.value}}
+    </div>
+    <!--{{count}}-{{b}}-->
+</div>
+bye mom
+
+<script>
+    angular.module("myapp_bodylevel", [])
+            .controller("MyController_withinModule", function($scope, $http) {
+                $scope.myData = {};
+
+                $scope.b = [{value: 1},
+                    {value: 2},
+                    {value: 3},
+                    {value: 4},
+                    {value: 5},
+                    {value: 6}];
+
+
+
+                $scope.myData.doClick = function(item, event) {
+
+                    // var responsePromise = $http.get("/angularjs-examples/json-test-data.jsp");
+                    //var responsePromise = $http.get("/todo/ajax_getJSONTableData");
+
+                    //alert ("pre angular get");
+                    //var responsePromise = $http.get("/todo/ajax_getTestAngularStyleGet");
+                     var responsePromise = $http.get("http://u2d.co/todo5/ajax_getTestAngularStyleGet");
+                    //var responsePromise = $http.jsonp("http://u2d.co/todo5/ajax_getTestAngularStyleGet");
+                    //var responsePromise = $http.jsonp("http://public-api.wordpress.com/rest/v1/sites/wtmpeachtest.wordpress.com/posts?callback=JSON_CALLBACK");
+
+                    responsePromise.success(function(data, status, headers, config) {
+                        //alert ("angular get success:data.title:" + data.title);
+                        alert ("angular get success:data.title:" + data.A);   // can do direct references
+                        // $scope.myData.fromServer = data.A;
+                        $scope.myData.fromServer = data;
+
+                    });
+                    responsePromise.error(function(data, status, headers, config) {
+                        alert ("angular get error");
+                    });
+                    alert ("post angular get");
+                }
+
+                // works
+                $scope.myData.testOverwrite = function(item, event) {
+
+                    $scope.myData.fromServer = "hkhk";
+                    $scope.b = [{value: 6},
+                        {value: 7},
+                        {value: 8},
+                        {value: 9},
+                        {value: 10},
+                        {value: 11}];
+                    setTimeout(function () {
+                        $scope.$apply(function () {
+                            alert("in timer");
+                            $scope.b = [{value: 61},
+                                {value: 71},
+                                {value: 81},
+                                {value: 91},
+                                {value: 101},
+                                {value: 111}];                        });
+
+                    }, 2000);
+
+//                    $scope.$apply(function(){
+//                        //$scope.actions[id]['showMyDiv']= true
+//                        $scope.b = [{value: 61},
+//                            {value: 71},
+//                            {value: 81},
+//                            {value: 91},
+//                            {value: 101},
+//                            {value: 111}];
+
+                    //alert ("done setting 2 $scope.b[0].value"+ $scope.b[0].value);
+
+                    //})
+
+                    alert ("done setting $scope.b[0].value"+ $scope.b[0].value);
+
+                }
+                alert ("done controller init");
+
+
+            }
+
+    );
+</script>
+
+</body>
+
+</html>

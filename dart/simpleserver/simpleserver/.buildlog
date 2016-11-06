@@ -1,0 +1,19 @@
+---
+build.dart --machine --full
+
+build.dart finished [752 ms]
+
+---
+build.dart --machine --clean
+Unable to open file: E:\Users\henryms\sw\ustodo\130707public\dart\simpleserver\simpleserver\packages\polymer\builder.dart'file:///E:/Users/henryms/sw/ustodo/130707public/dart/simpleserver/simpleserver/build.dart': error: line 1 pos 1: library handler failed
+import 'package:polymer/builder.dart';
+^
+build.dart finished [53 ms]
+
+---
+build.dart --machine --full
+Unable to open file: E:\Users\henryms\sw\ustodo\130707public\dart\simpleserver\simpleserver\packages\polymer\builder.dart'file:///E:/Users/henryms/sw/ustodo/130707public/dart/simpleserver/simpleserver/build.dart': error: line 1 pos 1: library handler failed
+import 'package:polymer/builder.dart';
+^
+build.dart finished [54 ms]
+

@@ -1,0 +1,107 @@
+<!doctype html>
+<!--from http://api.jquery.com/mouseenter/-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>mouseenter demo</title>
+    <style>
+        div.out {
+            width:40%;
+            height:120px;
+            margin:0 15px;
+            background-color:#D6EDFC;
+            float:left;
+        }
+        div.in {
+            width:60%;
+            height:60%;
+            background-color:#FFCC00;
+            margin:10px auto;
+        }
+        p {
+            line-height:1em;
+            margin:0;
+            padding:0;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+
+<div id="hkhkhkhk" class="out overout"><p>move your mouse</p><div class="in overout"><p>move your mouse</p><p>0</p></div><p>0</p></div>
+
+<div class="out enterleave"><p>move your mouse</p><div class="in enterleave"><p>move your mouse</p><p>0</p></div><p>0</p></div>
+
+<script type="text/javascript" src="js/utiljs/UtilDOM.js"></script>
+
+<script>
+    var i = 0;
+
+    $("#hkhkhkhk").mouseenter(function(){
+        alert ("ho hk0");
+    })
+
+
+    $("div.overout").mouseover(function(){
+        //alert ("ho hk1");
+        $("p:first",this).text("mouse over");
+        $("p:last",this).text(++i);
+    }).mouseout(function(){
+                //alert ("ho hk2");
+                $("p:first",this).text("mouse out");
+            });
+
+    var n = 0;
+    $("div.enterleave").mouseenter(function(){
+        // alert ("ho hk3");
+        $("p:first",this).text("mouse enter");
+        $("p:last",this).text(++n);
+    }).mouseleave(function(){
+                // alert ("ho hk4");
+                $("p:first",this).text("mouse leave");
+            });
+
+
+    alert ("start");
+    $('body').on('mouseenter', 'input.hkbk8', function() {
+    //$('body').on('mouseenter', '#idbuthk2', function() {
+    //$('body').on('mouseenter', '#idbutonhk4', function() {
+        //alert( $(this).text() );
+        console.log( "in mouseenter function by IDx" );
+    });
+    // works by type.class
+    //    $('body').on('mouseenter', 'input.hkbk', function() {
+    //        //alert( $(this).text() );
+    //        alert( "in button mouseenter" );
+    //    });
+
+
+    $("#bkbkbkbk_xxx").mouseenter(function(){
+        alert ("hi bkbkbkbk");
+    })
+    //alert ("done")
+
+
+    function testme() {
+        //$('#idbuthk').value='ffff'
+        //getElementByIdHK('idbuthk').value='ffff'
+        $('#bkbkbkbk').append("<input id='bkbkbkbk' class='hkbk8' type='button' onclick=testme() value='idbuthk2'></input>");
+        //alert ("hi hk2");
+    }
+</script>
+
+<input id='idbutonhk2' class='hkbk' type='button' onclick="testme()" value='dddd'></input>
+
+<div id='bkbkbkbkouter' onmouseover="console.log   ('in mouseover55')">
+    bbkouter
+    <div id='bkbkbkbk'>
+        bkbkbkbk
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+

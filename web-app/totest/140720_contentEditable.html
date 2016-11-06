@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>content editable demo</title>
+    <script src="/js/jquery/jquery-2.1.0.min.js"></script>
+    <!--<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>-->
+    <script src="/jqueryUI/customdark/jquery-ui-1.11.0.custom/jquery-ui.js"></script>
+  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">-->
+    <script type="text/javascript">
+        $('button').click(function () {
+            var command = $(this).text();
+            document.execCommand(command, null, null);
+        });
+
+        $('size').click(function () {
+            var command = "fontSize";
+            document.execCommand(command, null, 5);
+        });
+
+        $('#gethtml').click(function () {
+            var html = $('#editor').html();
+            $('#result').text(html);
+            return false;
+        });
+    </script>
+</head>
+<body>
+
+    <button>bold</button>
+    <button>italic</button>
+    <button>underline</button>
+    <button id="size">size 5</button>
+    <div id="editor" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lorem nulla, sollicitudin nec commodo quis, ultricies in mauris. Cras facilisis pretium nunc ut auctor. Fusce congue diam sit amet ipsum luctus vitae porttitor sapien egestas. Suspendisse vestibulum nibh vitae nulla accumsan sed laoreet dolor iaculis. Vivamus id laoreet felis.</div>
+    <a href="#" id="gethtml">Get HTML</a>
+
+    <div id="result"></div>
+
+</body>
+</html>

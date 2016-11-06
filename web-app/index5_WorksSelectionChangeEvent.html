@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head xmlns="http://www.w3.org/1999/html">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js">
+    </script>
+    <script>
+
+        //alert ("hi");
+        if (!window.x) {
+            x = {};
+        }
+        x.Selector = {};
+        x.Selector.getSelected = function() {
+            var t = '';
+            if (window.getSelection) {
+                t = window.getSelection();
+            } else if (document.getSelection) {
+                t = document.getSelection();
+            } else if (document.selection) {
+                t = document.selection.createRange().text;
+            }
+            //alert ("called");
+            //alert("getclass of t:" + getClass(t)); // Selection
+            //alert("t.toString():" + t.toString());
+            return t;
+        }
+
+
+        function getClass(obj) {
+            if (typeof obj === "undefined")
+                return "undefined";
+            if (obj === null)
+                return "null";
+            return Object.prototype.toString.call(obj)
+                    .match(/^\[object\s(.*)\]$/)[1];
+        }
+
+
+        //alert ("hi2");
+        //alert ($==jQuery);
+        $(function() {
+            $(window).bind("mouseup", function() {
+                var mytext = x.Selector.getSelected();
+                document.getElementById('parent2').innerHTML = mytext.toString();
+                //alert("mytext" + getClass(mytext));
+            });
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+
+<div id="parent">
+    outside in the cold distance a race horse did howl
+</div>
+<div id="changetest">
+    changetest
+</div>
+</body>
+</html>
+
+
+<!--// xxfrom http://stackoverflow.com/questions/5669448/get-selected-texts-html-in-div-->

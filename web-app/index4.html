@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head xmlns="http://www.w3.org/1999/html">
+    %{-- hbk --}%
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+
+    <meta name='layout' content='main'/>
+
+
+    <script type="text/javascript">
+    $(function() {
+    $("#container > span").on("click", function(){
+    $('body').append("<br/>child clicked");
+    });
+    });​
+    </script>
+
+    </head>
+
+<body>
+
+<div id="parent">outside
+    <div id="container">
+        outside
+        <span>first_span_clickMe</span>
+        <span>second_span_clickMe</span>
+    </div>
+    outside</div>
+</body>
+</html>

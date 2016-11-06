@@ -1,0 +1,1 @@
+remove tinymce for contenteditable

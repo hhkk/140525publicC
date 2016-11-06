@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file. -->
+<html>
+<!-- ********************************* BEGIN DART EXPORT SECTION ********************************* -->
+<head>
+    <meta charset="utf-8">
+    <title>Solar System Demo</title>
+    <link type="text/css" rel="stylesheet" href="solar.css">
+</head>
+<body>
+
+<script>
+    //alert ("JS:0.01 hk document.location.pathname:"+document.location.pathname);
+    //alert ("JS:0.01b hk window.location.href:"+window.location.href);
+
+    function hbkJsListener(event){
+        // if ( event.origin !== "http://javascript.info" )
+        //  return
+
+        alert ("JS:0.03 top of hbkJsListener1. received msg event.data:" + event.data);
+        //data2Js["type"] = "Json.Type_FromDart2Js";
+
+        //document.getElementById("test").innerHTML = "received event.data:"+event.data
+        //document.getElementById("test").innerHTML = "received event.data[4]:"+event.data[4]
+        //document.getElementById("test").innerHTML = "received event.data.action:"+event.data.action
+    }
+
+    function buttonClickHandler() {
+        //alert ("JS:0.04 top of buttonClickHandler");
+        var data2 = {};
+        data2["type"] = "js2dart";
+        data2["action"] = "action2";
+        data2["payload"] = "FROMJS: payload";
+        var sSendToDart = JSON.stringify(data2);
+        alert ("JS:0.05 sSendToDart:" + sSendToDart);
+        //alert ("in buttonClickHandler window.location.href:" + window.location.href);
+        window.postMessage(sSendToDart,  "*");
+        //window.postMessage(sSendToDart,  window.location.href);
+        //console.log ("posted json message:" + sSendToDart);
+    }
+
+    // from     dartexpense  C:\Users\henryms\Downloads\DartSourceCode\3 Final Source Code\12-src\12-src\DartExpense
+    function sendToDart(action, payload) {
+        var data = {};
+        data["type"] = "js2dart";
+        data["action"] = action;
+        data["payload"] = payload;
+        var jsonData = JSON.stringify(data);
+        window.postMessage(jsonData,window.location.href);
+    }
+
+    // fetch in JS from  http://javascript.info/tutorial/cross-window-messaging-with-postmessage
+    if (window.addEventListener){
+        // alert ("pre addEventListener");
+        addEventListener("message", hbkJsListener, false)
+        //alert ("post addEventListener");
+    } else {
+        //alert ("pre attachEvent");
+        //attachEvent("onmessage", hbkJsListener)
+        //alert ("post attachEvent");
+    }
+</script>
+<script type="application/dart" src="solar.dart"></script>
+<script src="packages/browser/dart.js"></script>
+
+<h1>Solar System</h1>
+<button onclick="buttonClickHandler()"> Send then receive to/from Dart</button>
+<div id="container"><canvas id="idCanvasPlanets" width="500px" height="400px"></canvas></div>
+<footer><p id="fps"></p></footer>
+<!-- ********************************* END DART EXPORT SECTION ********************************* -->
+END STUFF
+<script>//document.write("Hello World!");</script>
+</body>
+</html>
+
+
+
+
+
+

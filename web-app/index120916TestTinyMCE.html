@@ -1,0 +1,70 @@
+
+%{--from http://www.tinymce.com/forum/viewtopic.php?id=9983--}%
+
+%{--    http://localhost:8084/ustodo/index120916TestTinyMCE.html   --}%
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript">
+    function getClass(obj) {
+        // see http://stackoverflow.com/questions/1249531/how-to-get-a-javascript-objects-class
+        //        see also Object.getPrototypeOf(a);
+        //        Depending on what you need #getClass() for, there are several options in JavaScript:
+        //
+        //        typeof()
+        //                instanceof
+        //                func.prototype, proto.isPrototypeOf
+        //        obj.constructor
+        //        A few examples:
+        //
+        //                function Foo() {}
+        //        var foo = new Foo()
+        //
+        //        typeof(foo) // == "object"
+        //
+        //        foo instanceof Foo // == true
+        //        foo.constructor // == Foo
+        //
+        //        Foo.prototype.isPrototypeOf(foo) // == true
+        //        Foo.prototype.bar = function (x) {return x+x}
+        //        foo.bar(21) // == 42
+        var cons = ", this.constructor:" + this.constructor
+
+        if (typeof obj === "undefined")
+            return "UsToDo says this class is undefined." + cons;
+        if (obj === null)
+            return "UsToDo says this class is null."  + cons;
+        else
+            return Object.prototype.toString.call(obj).match(/^\[object\s(.*)\]$/)[1];
+
+
+    }
+</script>
+<head>
+    <title>HK tinyMCE example: Example 00 - Simple Theme</title>
+    <!--<link href="css/screen.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="/css/syntax.css" rel="stylesheet" type="text/css" />-->
+    <!--<script type="text/javascript" src="js/code_highlighter.js"></script>-->
+    <script type="text/javascript" src="js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+    <script language="javascript" type="text/javascript">
+        tinyMCE.init({
+            mode : "textareas",
+            theme : "simple"
+        });
+    </script>
+</head>
+<body>
+
+<form method="post" action="dump.php">
+
+    <textarea id="TEXT" name="content" cols="50" rows="15">This is some content that will be editable with TinyMCE.</textarea>
+</form>
+</div>
+
+<p><a href="http://wiki.moxiecode.com/index.php/TinyMCE:Index">Back to TinyMCE Wiki</a></p>
+<input type="button" value="hohoho" onclick="alert(getClass(tinyMCE)); alert(tinyMCE.activeEditor.getContent('TEXT'));">
+<!--<input type="button" value="hohoho" onclick="alert ('hi');alert(tinyMCE.activeEditor.getContent('TEXT'));">-->
+<!--<script type="text/javascript">sh_highlightDocument();</script>-->
+
+</body>
+</html>

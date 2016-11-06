@@ -1,0 +1,55 @@
+<!--http://api.jqueryui.com/droppable/#entry-examples-->
+<!--C:/140525publicC/web-app\totest/140719_droppableExample.html-->
+
+<!--  WORKS  http://u2d.co/totest/140719_droppableExample.html-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>droppable demo</title>
+  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">-->
+  <link rel="stylesheet" href="/jqueryUI/customdark/jquery-ui-1.11.0.custom/jquery-ui.css">
+  <style>
+  #draggable {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+  }
+  #droppable {
+    position: absolute;
+    left: 250px;
+    top: 0;
+    width: 125px;
+    height: 125px;
+    background: #999;
+    color: #fff;
+    padding: 10px;
+  }
+
+  div[contenteditable] {
+      background: green;
+  }
+  </style>
+  <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+  <script src="/js/jquery/jquery-2.1.0.min.js"></script>
+  <!--<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>-->
+  <script src="/jqueryUI/customdark/jquery-ui-1.11.0.custom/jquery-ui.js"></script>
+</head>
+<body>
+
+<div id="droppable">Drop here</div>
+<div id="draggable">Drag me</div>
+
+<script>
+$( "#draggable" ).draggable();
+$( "#droppable" ).droppable({
+  drop: function() {
+    alert( "dropped" );
+  }
+});
+</script>
+
+</body>
+</html>

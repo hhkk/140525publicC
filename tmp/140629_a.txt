@@ -1,0 +1,11 @@
+ Volume in drive C is Acer
+ Volume Serial Number is 362A-2207
+
+ Directory of c:\140525publicC\tmp
+
+06/27/2014  07:37 PM    <DIR>          .
+06/27/2014  07:37 PM    <DIR>          ..
+06/27/2014  07:37 PM                 0 140629_a.txt
+08/08/2013  05:43 AM                 5 h.h
+               2 File(s)              5 bytes
+               2 Dir(s)   4,817,350,656 bytes free

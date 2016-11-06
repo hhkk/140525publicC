@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<!--/Users/hkon/sw/ustodo/110504utd/ustodo130220/web-app/index130624_TestDivResize.html-->
+
+
+<!--http://stackoverflow.com/questions/13586171/css-vertical-align-text-bottom-->
+<!--http://jsbin.com/ozenoj/34/edit-->
+<!--http://localhost:8084/ustodo/index130624_TestDivResize.html-->
+<html>
+<head>
+    <script type="text/javascript" src="js/hk.jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.1/ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/hk.jquery.layout-latest.min.js"></script>
+
+    <script type="text/javascript">
+        function testme2()  // hbk130623
+        {
+            var t = $('#testme2ta').val();
+            //alert ("setting to:" + t)
+            getElementByIdHK('hbk').style.height = t;
+            //$('#hbk').attr ('style.height', t);
+        }
+
+        function getElementByIdHK(id)
+        {
+            var element = document.getElementById(id)
+            //alert("in getElementByIdHK id:"+id)
+            if (element == null)
+            {
+                alert("error, no such element id [" + id + "]");
+            }
+            return element;
+        }
+
+    </script>
+</head>
+<body>
+
+<!--<input rows="4" cols="50" value='200' id="testme2ta">-->
+<!--200-->
+<!--</input>-->
+<!--<INPUT type="button" value="TestMe2" title="Test #2 - don't click" src="xxxxxxxxx.png" height="19px" width="19px"-->
+       <!--onclick="testme2()"-->
+        <!-- xx -->
+
+<!--before hbk div-->
+<!--<div style="height:500px; background-color:green;">-->
+<div style="width:300px;height:50px;border:1px solid red">
+        <!--<div id="hbk" style="vertical-align:text-bottom; height:50% ;background-color:red;" onresize="alert ('been resized!')">-->
+    <div id="hbk" style="vertical-align:bottom;" >
+        text at bottom?
+
+    </div>
+</div>
+<!--resize:both; overflow:auto-->
+after hbk div
+</body>
+</html>
+
+
+
+

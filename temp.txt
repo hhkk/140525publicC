@@ -1,0 +1,169 @@
+diff --git a/grails-app/views/todo/indexLayout.gsp b/grails-app/views/todo/indexLayout.gsp
+deleted file mode 100755
+index bf2d191..0000000
+--- a/grails-app/views/todo/indexLayout.gsp
++++ /dev/null
+@@ -1,139 +0,0 @@
+-<html>
+-<head>
+-    <g:javascript src="jquery/jquery-1.7.1.min.js" />
+-    <g:javascript src="jquery/jquery.layout-latest.js" />
+-    <g:javascript src="utiljs/onloadhk_fromMaingspss.js" />
+-    <script>
+-        $(document).ready(function () {
+-            $('body').layout({ applyDefaultStyles: true });
+-            setBackgroundImage(true);
+-            var myLayout = $('body').layout();
+-            myLayout.sizePane('north', 75);
+-            myLayout.sizePane('south', 75);
+-            myLayout.sizePane('west', 150);
+-            myLayout.sizePane('east', 150);
+-
+-//            var state = myLayout.state;
+-//
+-//// current state
+-//            var isWestPaneOpen       = !state.west.isClosed;
+-//            //alert ("isWestPaneOpen:"+isWestPaneOpen)
+-////            var isSouthPaneHidden    = state.south.isHidden;
+-////            alert ("isWestPaneOpen:"=+isWestPaneOpen)
+-////            var isEastPaneSliding    = state.east.isSliding;
+-////            alert ("isWestPaneOpen:"=+isWestPaneOpen)
+-//
+-//// current dimensions
+-//            var westCurrentSize      = state.west.size;
+-//            //alert ("westCurrentSize:"+westCurrentSize)
+-//            //state.west.size=100;
+-//            myLayout.sizePane("west", 10);
+-//            //alert ("westCurrentSize now?:"+westCurrentSize)
+-//            var westMinimumSize      = state.west.minSize;
+-//            //alert ("westMinimumSize:"+westMinimumSize)
+-//            var containerInnerWidth  = state.container.innerWidth;
+-//            //alert ("containerInnerWidth:"+containerInnerWidth)
+-//            var containerPaddingLeft = state.container.paddingLeft;
+-//            //alert ("containerPaddingLeft:"+containerPaddingLeft)
+-//            //myLayout.sizePane("ui-layout-west", 10);
+-        });
+-
+-
+-    </script>
+-
+-    <style type="text/css" media="all">
+-    #page-backgroundcenter {position:absolute; top:0; left:0; width:100%; height:100%;}
+-    #contentcenter {position:absolute; z-index:1; x_padding:50px; }
+-    #page-backgroundnorth {position:absolute; top:0; left:0; width:100%; height:100%;}
+-    #contentnorth {position:absolute; z-index:1; x_padding:50px; }
+-    #page-backgroundsouth {position:absolute; top:0; left:0; width:100%; height:100%;}
+-    #contentsouth {position:absolute; z-index:1; }
+-    #page-backgroundeast {position:absolute; top:0; left:0; width:100%; height:100%;}
+-    #contenteast {position:absolute; z-index:1; x_padding:50px; }
+-    #page-backgroundwest {position:absolute; top:0; left:0; width:100%; height:100%;}
+-    #contentwest {position:absolute; z-index:1; }
+-
+-%{-- dddd --}%
+-
+-
+-    </style>
+-
+-
+-</head>
+-<body>
+-
+-<div class="ui-layout-center">
+-    <div id="page-backgroundcenter">
+-        <img class="backimagehk" id="artselectintcenter" width="100%" height="100%">
+-    </div>
+-    <div id="contentcenter">
+-        hi center
+-    </div>
+-
+-</div>
+-<div class="ui-layout-north" align="center">
+-    <div id="page-backgroundnorth">
+-        <img class="backimagehk" id="artselectintnorth"  width="100%" height="100%">
+-    </div>
+-    <div id="contentnorth" >
+-        UsToDo
+-        <g:textArea
+-                id="txtUpper"
+-                name="q"
+-                class="fld1upperclass"
+-                style="xxheight:4em;color:blue;margin-left:0px;font-size:16px; vertical-align: top"
+-                type="text"
+-                size="40%"
+-                cols="90"
+-                rows="dontMatterWillBeMce"
+-                onkeypress=""
+-                onkeyup="copyupdown(1);handleEnter(this, event);${
+-                    remoteFunction(action: 'ajax_autocompleteSearchUpper',
+-                            update: [success: 'leftnav', failure: 'not_listoutputxxxxxxxxxxx'],
+-                            params: '\'autocomp=\' + this.value',
+-                            onComplete: 'postautocomplete(\'txtUpper\');')}"
+-
+-                value="${txtUpper}"
+-                style="color:olive;font-size:24px;"
+-        />
+-
+-    </div>
+-</div>
+-<div class="ui-layout-south">
+-    <div id="page-backgroundsouth">
+-        <img  class="backimagehk" id="artselectintsouth"  width="100%" height="100%">
+-    </div>
+-    <div id="contentsouth">
+-        hi south
+-
+-        <g:if test="${flash.message.toString().contains("Saved")}">
+-            <font color="orange" size = +2>
+-        </g:if>
+-
+-        ${flash.message} %{-- Saved [ --}%
+-        <g:if test="${flash.message.toString().contains("Saved")}">
+-            </font>
+-            <br>
+-        </g:if>
+-
+-    </div>
+-</div>
+-<div class="ui-layout-east">
+-    <div id="page-backgroundeast">
+-        <img  class="backimagehk" id="artselectinteast"  width="100%" height="100%">
+-    </div>
+-    <div id="contenteast">
+-        hi east
+-    </div>
+-</div>
+-<div    class="ui-layout-west">
+-    <div id="page-backgroundwest">
+-        <img  class="backimagehk" id="artselectintwest"  width="100%" height="100%">
+-    </div>
+-    <div id="contentwest">
+-        hi west
+-    </div>
+-</div>
+-
+-</body>
+-</html>
+diff --git a/temp.txt b/temp.txt
+index 0841862..d898b3a 100644
+--- a/temp.txt
++++ b/temp.txt
+@@ -1,19 +0,0 @@
+-#.gitignore#
+-Project_Default.xml
+-README.md
+-application.properties
+-favsbkon.csv
+-favsckckck.csv
+-favsuninited.csv
+-grails-app
+-lib
+-scripts
+-src
+-target
+-temp.txt
+-test
+-ustodo112-grailsPlugins.iml
+-ustodo112.iml
+-ustodo130220-grailsPlugins.iml
+-ustodo130220.iml
+-web-app

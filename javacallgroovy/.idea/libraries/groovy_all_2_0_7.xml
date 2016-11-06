@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="groovy-all-2.0.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/grails-2.2.1/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-2.0.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

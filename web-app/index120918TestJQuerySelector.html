@@ -1,0 +1,30 @@
+<!--from http://api.jquery.com/has-attribute-selector/-->
+
+<!--http://localhost:8084/ustodo/index120918TestJQuerySelector.html-->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+</head>
+<body>
+<div>no id</div>
+<div id="hey">with id</div>
+
+<div id="there">has an id</div>
+<div>nope</div>
+<script>
+
+    $('div[id]').one('click', function(){
+        var idString = $(this).text() + ' = ' + $(this).attr('id');
+        $(this).text(idString);
+    });
+</script>
+
+</body>
+</html>

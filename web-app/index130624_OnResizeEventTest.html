@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<!--/Users/hkon/sw/ustodo/110504utd/ustodo130220/web-app/index150624_OnResizeEventTest.html-->
+
+<!--http://localhost:8084/ustodo/index130624_TestDivResize.html-->
+<html>
+<head>
+    <script type="text/javascript" src="js/hk.jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.1/ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/hk.jquery.layout-latest.min.js"></script>
+
+    <script type="text/javascript">
+        function testme2()  // hbk130623
+        {
+            var t = $('#testme2ta').val();
+            //alert ("setting to:" + t)
+            getElementByIdHK('hbk').style.height = t;
+            //$('#hbk').attr ('style.height', t);
+        }
+
+        function getElementByIdHK(id)
+        {
+            var element = document.getElementById(id)
+            //alert("in getElementByIdHK id:"+id)
+            if (element == null)
+            {
+                alert("error, no such element id [" + id + "]");
+            }
+            return element;
+        }
+
+    //  from http://stackoverflow.com/questions/12094300/jquery-resize-iframe-stops-when-contracting-quickly
+//        $("yourObjectToResize").resizable({
+//            //containment: 'parent',
+//            minWidth: 400,
+//            minHeight: 200,
+//            start: function () {
+//                $(".widget_box").each(function (index, element) {
+//                    var d = $('<div class="iframeCover" style="zindex:99;position:absolute;width:100%;top:0px;left:0px;height:' + $(element).height() + 'px"></div>');
+//                    $(element).append(d);
+//                });
+//            },
+//            stop: function () {
+//                $('.iframeCover').remove();
+//            }
+//        });
+
+
+
+    </script>
+</head>
+<body>
+
+<!--<input rows="4" cols="50" value='200' id="testme2ta">-->
+<!--200-->
+<!--</input>-->
+<!--<INPUT type="button" value="TestMe2" title="Test #2 - don't click" src="xxxxxxxxx.png" height="19px" width="19px"-->
+<!--onclick="testme2()"-->
+<!-- xx -->
+
+<!--before hbk div-->
+<!--<div style="height:500px; background-color:green;">-->
+<div style="width:300px;height:50px;display:table;border:1px solid red">
+    <!--<div id="hbk" style="vertical-align:text-bottom; height:50% ;background-color:red;" onresize="alert ('been resized!')">-->
+    <div id="hbk" style="display:table-cell;vertical-align:bottom;" >
+        text at bottom?
+
+    </div>
+</div>
+<!--resize:both; overflow:auto-->
+after hbk div
+</body>
+</html>
+
+
+
+

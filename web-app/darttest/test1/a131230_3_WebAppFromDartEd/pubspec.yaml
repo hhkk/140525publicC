@@ -1,0 +1,4 @@
+name: a131230_3_WebAppFromDartEd
+description: A sample web application
+dependencies:
+  browser: any

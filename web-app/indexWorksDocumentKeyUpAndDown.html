@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+<head>
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script>
+
+        var keys = [];
+
+        document.onkeydown = function   (evt)
+        {
+            //alert("keydn");
+            var key = evt.keyCode;
+            keys[key] = true;
+            if(keys[91] && keys[55]){
+                console.log("win7");
+            }
+        }
+
+        document.onkeyup = function(evt){
+            //  alert("keyupsdddd");
+            var key = evt.keyCode;
+            keys[key] = false;
+        }
+    </script>
+</head>
+<body>
+
+test keyup and down
+indexWorksDocumentKeyUpAndDown
+
+</body>
+</html>
+

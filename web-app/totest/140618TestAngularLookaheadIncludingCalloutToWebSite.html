@@ -1,0 +1,37 @@
+<!--C:\140525publicC\web-app\totest\140618TestAngularLookahead.html-->
+<!-- http://u2d.co/totest/140618TestAngularLookahead.html -->
+<!--http://localhost:8081/totest/140618TestAngularLookahead.html-->
+<!--running example of this (below is minimized): http://plnkr.co/edit/t1neIS?p=preview-->
+
+<!doctype html>
+<html ng-app="plunker___">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+</head>
+
+<script type="text/javascript">
+    angular.module('plunker___', ['ui.bootstrap']);
+    function TypeaheadCtrl($scope, $http, limitToFilter) {
+
+        //http://www.geobytes.com/free-ajax-cities-jsonp-api.htm
+
+//            return $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?filter=US&q="+cityName).then(function(response){
+        $scope.cities______ = function(cityName) {
+            return $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?callback=JSON_CALLBACK &filter=US&q="+cityName).then(function(response){
+                return limitToFilter(response.data, 15);
+            });
+        };
+
+    }
+</script>
+<body>
+    <div  ng-controller="TypeaheadCtrl">
+        <pre>Model: {{result }}</pre>
+        <input type="text" ng-model="result"
+               typeahead="suggestion for suggestion in cities______($viewValue)">
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<!--
+    http://u2d.co/index140504_angularTest.html
+-->
+<!--from http://viralpatel.net/blogs/angularjs-introduction-hello-world-tutorial/-->
+
+<!--
+http://u2d.co/index140501_angularTest.html
+-->
+
+<!--
+http://jsfiddle.net/viralpatel/nZ5sH/
+-->
+<head>
+    <title>hbk ang 140504</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
+    </script>
+
+    Write some text in textbox:
+    <input type="text" ng-model="sometext" />
+
+<h1 ng-show="sometext">Hello1 {{ sometext }}</h1>
+
+hk2Write some text in textbox:
+<input type="text" ng-model="sometext" />
+<h1>Hello2 {{ sometext }}</h1>
+<h4>Uppercase: {{ sometext | uppercase }}</h4>
+<h4>Lowercase: {{ sometext | lowercase }}</h4>
+
+
+<script type="text/javascript">
+    function onClickAlert()
+    {
+        console.log ("in onClickAlert") ;
+        //  alert ("in onClickAlert") ;
+    }
+
+    function ContactController($scope) {
+        $scope.contacts = ["hi@email.com", "hello@email.com"];
+        //alert('in init of class ContactController)')  ;
+        $scope.add = function() {
+            alert('in ContactController2.add)')  ;
+            $scope.contacts.push($scope.newcontact);
+            $scope.newcontact = "";
+        }
+    }
+</script>
+<div ng-app ng-controller="ContactController">
+    e1:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <ul><li ng-repeat="contact in contacts"> {{ contact }} </li></ul>
+
+    e2:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <ul><li ng-repeat="contact in contacts"> {{ contact }} </li></ul>
+</div>
+<div ng-controller="ContactController">
+    e3:<input type="text" ng-model="newcontact"/>
+    <button ng-click="add()">Add</button>
+    <ul><li ng-repeat="contact in contacts"> {{ contact }} </li></ul>
+</div>
+
+
+
+
+
+<!--<script type="text/javascript">-->
+    <!--//http://stackoverflow.com/questions/17646034/what-is-the-best-practice-for-making-an-ajax-call-in-angular-js-->
+    <!--alert ("at start module.factory");-->
+    <!--module.factory('WidgetData', function($http){-->
+        <!--return {-->
+            <!--get : function(params){-->
+                <!--return $http.get('url/to/widget/data', {-->
+                    <!--params : params-->
+                <!--});-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+
+    <!--module.controller('WidgetController', function(WidgetData){-->
+        <!--WidgetData.get({-->
+            <!--id : '0'-->
+        <!--}).then(function(response){-->
+            <!--//Do what you will with the data.-->
+        <!--})-->
+    <!--});-->
+    <!--alert ("at end module.factory");-->
+<!--</script>-->
+
+
+
+
+</body>
+</html>
