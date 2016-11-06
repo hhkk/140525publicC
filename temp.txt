@@ -1,169 +1,45 @@
-diff --git a/grails-app/views/todo/indexLayout.gsp b/grails-app/views/todo/indexLayout.gsp
-deleted file mode 100755
-index bf2d191..0000000
---- a/grails-app/views/todo/indexLayout.gsp
-+++ /dev/null
-@@ -1,139 +0,0 @@
--<html>
--<head>
--    <g:javascript src="jquery/jquery-1.7.1.min.js" />
--    <g:javascript src="jquery/jquery.layout-latest.js" />
--    <g:javascript src="utiljs/onloadhk_fromMaingspss.js" />
--    <script>
--        $(document).ready(function () {
--            $('body').layout({ applyDefaultStyles: true });
--            setBackgroundImage(true);
--            var myLayout = $('body').layout();
--            myLayout.sizePane('north', 75);
--            myLayout.sizePane('south', 75);
--            myLayout.sizePane('west', 150);
--            myLayout.sizePane('east', 150);
--
--//            var state = myLayout.state;
--//
--//// current state
--//            var isWestPaneOpen       = !state.west.isClosed;
--//            //alert ("isWestPaneOpen:"+isWestPaneOpen)
--////            var isSouthPaneHidden    = state.south.isHidden;
--////            alert ("isWestPaneOpen:"=+isWestPaneOpen)
--////            var isEastPaneSliding    = state.east.isSliding;
--////            alert ("isWestPaneOpen:"=+isWestPaneOpen)
--//
--//// current dimensions
--//            var westCurrentSize      = state.west.size;
--//            //alert ("westCurrentSize:"+westCurrentSize)
--//            //state.west.size=100;
--//            myLayout.sizePane("west", 10);
--//            //alert ("westCurrentSize now?:"+westCurrentSize)
--//            var westMinimumSize      = state.west.minSize;
--//            //alert ("westMinimumSize:"+westMinimumSize)
--//            var containerInnerWidth  = state.container.innerWidth;
--//            //alert ("containerInnerWidth:"+containerInnerWidth)
--//            var containerPaddingLeft = state.container.paddingLeft;
--//            //alert ("containerPaddingLeft:"+containerPaddingLeft)
--//            //myLayout.sizePane("ui-layout-west", 10);
--        });
--
--
--    </script>
--
--    <style type="text/css" media="all">
--    #page-backgroundcenter {position:absolute; top:0; left:0; width:100%; height:100%;}
--    #contentcenter {position:absolute; z-index:1; x_padding:50px; }
--    #page-backgroundnorth {position:absolute; top:0; left:0; width:100%; height:100%;}
--    #contentnorth {position:absolute; z-index:1; x_padding:50px; }
--    #page-backgroundsouth {position:absolute; top:0; left:0; width:100%; height:100%;}
--    #contentsouth {position:absolute; z-index:1; }
--    #page-backgroundeast {position:absolute; top:0; left:0; width:100%; height:100%;}
--    #contenteast {position:absolute; z-index:1; x_padding:50px; }
--    #page-backgroundwest {position:absolute; top:0; left:0; width:100%; height:100%;}
--    #contentwest {position:absolute; z-index:1; }
--
--%{-- dddd --}%
--
--
--    </style>
--
--
--</head>
--<body>
--
--<div class="ui-layout-center">
--    <div id="page-backgroundcenter">
--        <img class="backimagehk" id="artselectintcenter" width="100%" height="100%">
--    </div>
--    <div id="contentcenter">
--        hi center
--    </div>
--
--</div>
--<div class="ui-layout-north" align="center">
--    <div id="page-backgroundnorth">
--        <img class="backimagehk" id="artselectintnorth"  width="100%" height="100%">
--    </div>
--    <div id="contentnorth" >
--        UsToDo
--        <g:textArea
--                id="txtUpper"
--                name="q"
--                class="fld1upperclass"
--                style="xxheight:4em;color:blue;margin-left:0px;font-size:16px; vertical-align: top"
--                type="text"
--                size="40%"
--                cols="90"
--                rows="dontMatterWillBeMce"
--                onkeypress=""
--                onkeyup="copyupdown(1);handleEnter(this, event);${
--                    remoteFunction(action: 'ajax_autocompleteSearchUpper',
--                            update: [success: 'leftnav', failure: 'not_listoutputxxxxxxxxxxx'],
--                            params: '\'autocomp=\' + this.value',
--                            onComplete: 'postautocomplete(\'txtUpper\');')}"
--
--                value="${txtUpper}"
--                style="color:olive;font-size:24px;"
--        />
--
--    </div>
--</div>
--<div class="ui-layout-south">
--    <div id="page-backgroundsouth">
--        <img  class="backimagehk" id="artselectintsouth"  width="100%" height="100%">
--    </div>
--    <div id="contentsouth">
--        hi south
--
--        <g:if test="${flash.message.toString().contains("Saved")}">
--            <font color="orange" size = +2>
--        </g:if>
--
--        ${flash.message} %{-- Saved [ --}%
--        <g:if test="${flash.message.toString().contains("Saved")}">
--            </font>
--            <br>
--        </g:if>
--
--    </div>
--</div>
--<div class="ui-layout-east">
--    <div id="page-backgroundeast">
--        <img  class="backimagehk" id="artselectinteast"  width="100%" height="100%">
--    </div>
--    <div id="contenteast">
--        hi east
--    </div>
--</div>
--<div    class="ui-layout-west">
--    <div id="page-backgroundwest">
--        <img  class="backimagehk" id="artselectintwest"  width="100%" height="100%">
--    </div>
--    <div id="contentwest">
--        hi west
--    </div>
--</div>
--
--</body>
--</html>
-diff --git a/temp.txt b/temp.txt
-index 0841862..d898b3a 100644
---- a/temp.txt
-+++ b/temp.txt
-@@ -1,19 +0,0 @@
--#.gitignore#
--Project_Default.xml
--README.md
--application.properties
--favsbkon.csv
--favsckckck.csv
--favsuninited.csv
--grails-app
--lib
--scripts
--src
--target
--temp.txt
--test
--ustodo112-grailsPlugins.iml
--ustodo112.iml
--ustodo130220-grailsPlugins.iml
--ustodo130220.iml
--web-app
+ Volume in drive C is Acer
+ Volume Serial Number is 362A-2207
+
+ Directory of C:\140525publicC
+
+11/06/2016  06:42 AM    <DIR>          .
+11/06/2016  06:42 AM    <DIR>          ..
+08/08/2013  04:43 AM               689 #.gitignore#
+01/31/2014  06:33 PM               505 .gitattributes
+06/22/2014  01:20 AM               682 .gitignore
+08/08/2013  04:43 AM               733 .gitignore~
+11/06/2016  06:24 AM    <DIR>          .idea
+03/02/2016  12:59 AM            10,299 130707public-grailsPlugins.iml
+05/25/2014  05:13 PM             4,828 130707public.iml
+06/22/2014  01:35 AM    <DIR>          140525publicC
+05/02/2014  12:21 AM               254 application.properties
+07/12/2016  01:48 AM    <DIR>          build
+05/25/2014  01:42 PM    <DIR>          dart
+07/15/2014  07:30 PM    <DIR>          downloads
+08/28/2016  04:13 PM             8,015 favsbkon.csv
+11/06/2016  06:55 AM           423,071 favsckckck.csv
+10/24/2013  09:30 PM                 0 favslb.csv
+11/08/2013  05:21 AM                31 favsyy.csv
+02/09/2015  09:50 PM                 0 favszk.csv
+07/31/2014  12:35 AM    <DIR>          grails-app
+05/25/2014  01:42 PM    <DIR>          javacallgroovy
+05/25/2014  01:42 PM    <DIR>          lib
+05/25/2014  01:42 PM    <DIR>          morphia
+05/25/2014  01:42 PM    <DIR>          out
+08/08/2013  04:43 AM            49,354 Project_Default.xml
+08/08/2013  04:43 AM                57 push.bat
+07/03/2014  05:06 AM               536 README.md
+05/25/2014  01:42 PM    <DIR>          scripts
+08/01/2014  05:48 AM    <DIR>          src
+07/12/2016  09:11 PM    <DIR>          target
+11/06/2016  06:55 AM                 0 temp.txt
+08/08/2013  04:43 AM             1,238 temp2.txt
+06/26/2014  10:24 PM             1,871 temptoday.txt
+06/26/2014  10:43 PM             1,923 tempttt.txt
+06/26/2014  10:43 PM             1,976 tempttt2.txt
+05/25/2014  01:42 PM    <DIR>          test
+06/27/2014  06:42 PM    <DIR>          tmp
+07/20/2014  01:30 AM    <DIR>          web-app
+              20 File(s)        506,062 bytes
+              18 Dir(s)   2,400,419,840 bytes free

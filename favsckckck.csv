@@ -2940,3 +2940,12 @@ MuseScore
 2016-11-06 05:58:37 utdloop weekly tak guitar in
 2016-11-06 06:14:19 bryan know two half hitches
 2016-11-06 06:14:44 sdfsdf
+2016-11-06 06:55:22 account / dropbox / AND ustodo checkin and backup info: dropbox: hank.khang@gmail pass:te**pa**h*h*h* 2 gig account - has ustodo backup 161105     in the hank.khang account: [no title] https://www.dropbox.com/home/utd%20backup    ALSO put backup on google drive [Meet Google Drive – One place for all your files] https://drive.google.com/drive/folders/0B2fr6l3OTdQATm9ocF9IVHJiQU0     [GitHub - hhkk/140525publicC] https://github.com/hhkk/140525publicC      cdcheckinustodo.bat    c:
+cd c:\140525publicC
+git add . --all 
+git commit -m '%1'
+rem user hhkk
+rem pass h......7
+git push origin master
+git status
+start [GitHub - hhkk/140525publicC] [Commits · hhkk/140525publicC · GitHub] https://github.com/hhkk/140525publicC/commits/master
